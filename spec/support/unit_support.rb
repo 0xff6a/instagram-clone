@@ -10,3 +10,7 @@ def _create_and_login_test_user
 	test_user = _create_test_user_object
 	login_as test_user
 end
+
+def _create_test_post_object
+	Post.create(title: 'test post', picture: _create_example_pic, user_id: User.first.id)
+end

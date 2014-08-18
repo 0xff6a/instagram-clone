@@ -15,9 +15,7 @@ describe 'Posting' do
 
 	context 'when there are posts' do
 
-		before(:each) do
-			Post.create(title: 'test post', picture: _create_example_pic, user_id: User.first.id)
-		end
+		before(:each) {_create_test_post_object }
 
 		it 'should list the posts on the homepage' do
 			visit posts_path
