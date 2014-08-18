@@ -2,4 +2,9 @@
 	<% if flash[:notice] %>
 		<h2 class='flash-notice'><%= flash[:notice] %></h2>
 	<% end %>
+	<% if flash[:errors] %>
+		<% flash[:errors].each do |error| %>
+			<h2 class='flash-error'> <%= error %></h2>
+		<% end %>
+	<% end %>
 </header>

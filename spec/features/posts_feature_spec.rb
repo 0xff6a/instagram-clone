@@ -34,6 +34,13 @@ describe 'Posting' do
 			expect(page).to have_content('Thank you for posting...')
 		end
 
+		it 'should display an error if the title is left out' do
+			visit posts_path
+			click_link 'New Post'
+			click_button 'Post'
+			expect(page).to have_content('Your post must have a title')
+		end
+
 		it 'allows a user to add an image to a post' do
 			visit posts_path
 			click_link 'New Post'

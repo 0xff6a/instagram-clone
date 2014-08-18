@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
 
+	validates :title, presence: { message: 'Your post must have a title' }
+
 	has_attached_file :picture, 
 		styles: { medium: "300x300>"},
 		storage: :s3,
