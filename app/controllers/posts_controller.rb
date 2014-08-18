@@ -9,19 +9,26 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = Post.new(params[:post].permit(:title, :picture))
-		@post.user_id = current_user.id
+		@post = _create_post(params[:post])
 		@post.save ? _process_post_save : _post_save_error(@post)
 	end
 
 	def _process_post_save
-		redirect_to posts_path
 		flash[:notice] = 'Thank you for posting...'
+		redirect_to posts_path
 	end
 
 	def _post_save_error(bad_post)
 		flash[:errors] = bad_post.errors.messages
-		redirect_to new_post_path
+		render 'new'
+	end
+
+	private
+
+	def _create_post(data_hash)
+		post = Post.new(data_hash.permit(:title, :picture))
+		post.user_id = current_user.id
+		post
 	end
 
 end
