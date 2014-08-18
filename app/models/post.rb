@@ -1,8 +1,10 @@
 class Post < ActiveRecord::Base
 
+	belongs_to :user
+
+	validates :user_id, presence: { message: 'You must be signed in to post' }
 	validates :title, presence: { message: 'Your post must have a title' }
 	validates :picture, attachment_presence: { message: 'You must attach a photo' }
-
 
 	has_attached_file :picture, 
 		styles: { medium: '300x300>', thumb: '100x100>'},

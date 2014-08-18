@@ -5,3 +5,8 @@ end
 def _create_test_user_object
 	User.create(email: 'test@test.com', password: '12345678', password_confirmation:'12345678')
 end
+
+def _create_and_login_test_user
+	test_user = _create_test_user_object
+	login_as test_user
+end

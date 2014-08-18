@@ -10,6 +10,7 @@ class PostsController < ApplicationController
 
 	def create
 		@post = Post.new(params[:post].permit(:title, :picture))
+		@post.user_id = current_user.id
 		@post.save ? _process_post_save : _post_save_error(@post)
 	end
 

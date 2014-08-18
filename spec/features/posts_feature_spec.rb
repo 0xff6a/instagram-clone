@@ -2,6 +2,9 @@ require 'rails_helper'
 
 describe 'Posting' do
 
+	before(:each) {  _create_and_login_test_user }
+
+
 	context 'when there are no posts' do
 
 		it 'should display a message' do
@@ -14,7 +17,7 @@ describe 'Posting' do
 	context 'when there are posts' do
 
 		before(:each) do
-			Post.create(title: 'test post', picture: _create_example_pic)
+			Post.create(title: 'test post', picture: _create_example_pic, user_id: User.first.id)
 		end
 
 		it 'should list the posts on the homepage' do
