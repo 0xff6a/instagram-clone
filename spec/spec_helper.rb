@@ -15,10 +15,15 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'paperclip/matchers'
+require 'devise'
 
 RSpec.configure do |config|
 
+  config.include Warden::Test::Helpers
+  Warden.test_mode!
+
   config.include Paperclip::Shoulda::Matchers
+  config.include Devise::TestHelpers, type: :controller
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
