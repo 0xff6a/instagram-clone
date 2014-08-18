@@ -1,9 +1,11 @@
 class Post < ActiveRecord::Base
 
 	validates :title, presence: { message: 'Your post must have a title' }
+	validates :picture, attachment_presence: { message: 'You must attach a photo' }
+
 
 	has_attached_file :picture, 
-		styles: { medium: "300x300>"},
+		styles: { medium: '300x300>', thumb: '100x100>'},
 		storage: :s3,
 		s3_credentials: {
 			bucket: 'instagram-clone-june',
