@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = Post.new(params[:post].permit(:title))
+		@post = Post.new(params[:post].permit(:title, :picture))
 		@post.save
 		redirect_to posts_path
 		flash[:notice] = 'Thank you for posting...'
