@@ -29,10 +29,13 @@ gem 'spring',        group: :development
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'capybara'
+	gem 'warden'
 end
 
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk'
+gem 'devise'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
