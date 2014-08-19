@@ -3,5 +3,7 @@
 	<%= f.text_field :title, placeholder: 'Title' %>
 	<%= f.label :picture %>
 	<%= f.file_field :picture %>
+	<%= f.label :tag_list, 'Tags' %>
+	<%= f.text_field :tag_list %>
 	<%= f.submit 'Post' %>
 <% end %>

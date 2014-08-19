@@ -1,10 +1,15 @@
 <% if @posts.any? %>
 	<% @posts.each do |post| %>
 		<h3 class='post-title'> <%=post.title%> </h3>
-		<a class='large-image-link' href=<%= post.picture.url %>>
-			<%= image_tag post.picture.url(:thumb), class: 'uploaded-pic' %>
-		</a><br/>
-		<em>Posted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.email %></em>
+		<% if post.picture.present? %>
+			<a class='large-image-link' href=<%= post.picture.url %>>
+				<%= image_tag post.picture.url(:thumb), class: 'uploaded-pic' %>
+			</a><br/>
+		<% end %>
+		<em>Posted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.email %></em><br/>
+		<% post.tags.each do |tag| %>
+			<%= link_to tag.text, '#' %>
+		<% end %>
 	<% end %>
 <% else %>
 	<h3 class='no-post-msg'>No posts yet</h3>
