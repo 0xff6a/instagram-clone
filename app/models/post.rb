@@ -19,6 +19,7 @@ class Post < ActiveRecord::Base
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
 
   def tag_list
+  	_post.tags.map(&:text).join(', ')
   end
 
   def tag_list=(tags)

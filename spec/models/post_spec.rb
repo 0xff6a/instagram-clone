@@ -4,6 +4,7 @@ RSpec.describe Post, :type => :model do
 
 	let(:pic) 	{ _create_example_pic }
 	let(:user) 	{ _create_test_user_object }
+	let(:post) { Post.create(title: 'New post', picture: pic, user_id: user.id) }
 
 	context 'validations' do
 		
@@ -34,8 +35,6 @@ RSpec.describe Post, :type => :model do
 	end
 
 	context '#tag_list=' do
-
-		let(:post) { Post.create(title: 'New post', picture: pic, user_id: user.id) }
 
 		context 'no tags provided do' do
 
@@ -85,6 +84,15 @@ RSpec.describe Post, :type => :model do
 
 		end
 	
+	end
+
+	context '#tag_list' do
+
+		it 'displays all tags associated with a post' do
+			post.tag_list = '#baam, #h8fruit'
+			expect(post.tag_list).to eq('#baam, #h8fruit')
+		end
+
 	end
 
 end
