@@ -9,4 +9,8 @@ class Tag < ActiveRecord::Base
 	validates :text, format: { with: /#\w+/, message:'A tag must start with a hash symbol' }
 	validates :text, length: { maximum: 50, message: 'A tag cannot be longer than 50 characters' }
 
+	def to_param
+		text.delete('#')
+	end
+
 end

@@ -1,7 +1,7 @@
 class TagsController < ApplicationController
 
 	def show
-		@tag = Tag.find(params[:id])
+		@tag = Tag.find_by(text: '#' + params[:id])
 		@posts = @tag.posts
 	end
 
