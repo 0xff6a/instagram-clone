@@ -1,14 +1,2 @@
 <h2 class='tags-header'>Posts tagged with <%= @tag.text %> </h2>
-
-<% @posts.each do |post| %>
-	<h3 class='post-title'> <%=post.title%> </h3>
-	<% if post.picture.present? %>
-		<a class='large-image-link' href=<%= post.picture.url %>>
-			<%= image_tag post.picture.url(:thumb), class: 'uploaded-pic' %>
-		</a><br/>
-	<% end %>
-	<em>Posted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.email %></em><br/>
-	<% post.tags.each do |tag| %>
-		<%= link_to tag.text, tag %>
-	<% end %>
-<% end %>
+<%= render @posts %>

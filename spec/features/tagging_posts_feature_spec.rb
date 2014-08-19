@@ -24,7 +24,7 @@ describe 'Tagging posts:' do
 		it 'lists all posts sharing a certain tag' do
 			visit posts_path
 			click_link 'New Post'
-			fill_in 'Title', with: 'Post'
+			fill_in 'Title', with: 'New Post'
 			fill_in 'Tags', with: '#baam, #h8fruit'
 			attach_file 'Picture', Rails.root.join('spec/images/example.jpg')
 			click_button 'Post'
@@ -36,7 +36,7 @@ describe 'Tagging posts:' do
 			click_button 'Post'
 			click_link '#baam'
 			expect(page).to have_content('Posts tagged with #baam')
-			expect(page).to have_content('Post')
+			expect(page).to have_content('New Post')
 			expect(page).not_to have_content('Unrelated Post')
 		end
 
