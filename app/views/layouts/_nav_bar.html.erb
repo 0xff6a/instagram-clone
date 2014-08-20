@@ -1,9 +1,21 @@
-<nav class='top-nav-bar'>
+<nav class="navbar-right">
 	<% if current_user %>
-		<%= link_to 'New Post', new_post_path %>
-		<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+		<%= link_to new_post_path, class: "btn btn-success"  do %>
+			<span class="glyphicon glyphicon-picture"></span>
+			<span> New Post <span>
+		<% end %>
+		<%= link_to destroy_user_session_path, method: :delete, class: "btn btn-danger" do %>
+			<span class="glyphicon glyphicon-road"></span>
+			<span> Sign Out<span>
+		<% end %>
 	<% else %>
-		<%= link_to 'Sign Up', new_user_registration_path %> 
-		<%= link_to 'Sign In', new_user_session_path %>
+	  <%= link_to new_user_session_path, class: "btn btn-primary" do %>
+	  	<span class="glyphicon glyphicon-log-in"></span>
+	  	<span> Sign In <span>
+  	<% end %>
+ 		<%= link_to new_user_registration_path, class: "btn btn-success" do %>
+ 			<span class="glyphicon glyphicon-user"></span>
+ 			<span> Sign Up <span>
+ 		<% end %>
 	<% end %>
 </nav>

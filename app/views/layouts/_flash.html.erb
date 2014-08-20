@@ -1,8 +1,14 @@
-<% if flash[:notice] %>
-	<h2 class='flash-notice'><%= flash[:notice] %></h2>
-<% end %>
-<% if flash[:errors] %>
-	<% flash[:errors].each do |error| %>
-		<h2 class='flash-error'> <%= error.flatten[1] %></h2>
+<section class="container">
+	<% if flash[:notice] %>
+		<div class="alert alert-success" role="alert">
+			<strong><%= flash[:notice] %><strong>
+		</div>
 	<% end %>
-<% end %>
+	<% if flash[:errors] %>
+		<% flash[:errors].each do |error| %>
+			<div class="alert alert-danger" role="alert">
+				<strong><%= error.flatten[1] %></strong>
+			</div>
+		<% end %>
+	<% end %>
+</section>
