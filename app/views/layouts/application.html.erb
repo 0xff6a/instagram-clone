@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>InstaBAAM!</title>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   	<%= csrf_meta_tags %>
@@ -24,6 +23,9 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href='/'>InstaBAAM! World Class KOs</a>
+          <% if current_user %>
+          	<p id='user-welcome' class="navbar-text">Welcome <%= current_user.email %></p>
+          <% end %>
         </div>
         <div class="navbar-collapse collapse">
         	<%= render partial: 'layouts/nav_bar' %>
@@ -40,24 +42,3 @@
 </html>
 
 
-
-
-
-
-
-<!-- 
------------------
-
-<body>
-<header>
-	<h1 class='header-logo'>InstaBAAM! Photos with a baam...</h1>
-	<% if current_user %>
-		<h2 class='header-welcome'> Welcome <%= current_user.email %></h2>
-	<% end %>
-	<%= render partial: 'layouts/nav_bar' %>
-	<%= render partial: 'layouts/flash' %>
-</header>
-<%= yield %>
-
-</body>
-</html> -->
