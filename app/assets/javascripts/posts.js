@@ -2,7 +2,7 @@ $(document).ready(function(){
 	
 	$('#post_tag_list').inputosaurus({
 		width: '200px',
-		outputDelimiter : ' OR ',
+		outputDelimiter : ', ',
 		parseHook : function(valArr){
 			return $.map(valArr, function(val) {
 				val = $.trim(val);
