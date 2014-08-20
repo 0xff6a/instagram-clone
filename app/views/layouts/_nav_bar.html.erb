@@ -1,6 +1,6 @@
 <nav class="navbar-right navbar-header">
 	<% if current_user %>
-		<%= link_to new_post_path, class: "btn btn-success navbar-btn"  do %>
+		<%= link_to '#', :class => "btn btn-success navbar-btn", :'data-toggle' => "modal", :'data-target' =>"#newPostModal"  do %>
 			<span class="glyphicon glyphicon-picture"></span>
 			<span> New Post <span>
 		<% end %>
@@ -19,3 +19,6 @@
  		<% end %>
 	<% end %>
 </nav>
+
+
+

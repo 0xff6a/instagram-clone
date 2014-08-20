@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
 	def new 
 		@post = Post.new
+		render layout: false if request.xhr?
 	end
 
 	def create
