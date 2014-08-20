@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	
 	$('#post_tag_list').inputosaurus({
 		width: '200px',
 		outputDelimiter : ' OR ',
@@ -12,4 +13,5 @@ $(document).ready(function(){
 			$('#post_tag_list_reflect').val(ev.target.value);
 		}
 	});
+
 });
