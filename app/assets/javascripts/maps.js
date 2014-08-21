@@ -35,10 +35,10 @@ $(document).ready( function () {
 
   if( $('#modal-map').length ) {
 
-      modalMap = new GMaps({
+      var modalMap = new GMaps({
         div: '#modal-map',
-        lat: -12.043333,
-        lng: -77.028333
+        lat: -0.0,
+        lng: -0.0
       });
 
       GMaps.geocode({
@@ -47,10 +47,16 @@ $(document).ready( function () {
         if (status == 'OK') {
           var latlng = results[0].geometry.location;
           modalMap.setCenter(latlng.lat(), latlng.lng());
+          modalMap.refresh();
         }
       }
     });
 
   };
+
+  $('#newPostModal').on('shown.bs.modal', function () {
+    modalMap.refresh();
+    console.log('WOO');
+  });
 
 });
