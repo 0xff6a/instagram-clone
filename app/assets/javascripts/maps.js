@@ -86,11 +86,10 @@ $(document).ready( function () {
 
     });
 
+    $('#newPostModal').on('shown.bs.modal', function () {
+      modalMap.refresh();
+    });
+
   };
-
-
-  $('#newPostModal').on('shown.bs.modal', function () {
-    modalMap.refresh();
-  });
 
 });
