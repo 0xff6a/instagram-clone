@@ -15,4 +15,5 @@
 //= require jquery-ui 
 //= require bootstrap-sprockets
 //= require inputosaurus
+//= require gmaps
 //= require_tree .
