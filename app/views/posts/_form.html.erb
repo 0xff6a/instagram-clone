@@ -1,9 +1,12 @@
 <section class='panel panel-default'>
 	<div class='new-post-container'>
 		<%= form_for @new_post, html: { multipart: true } do |f| %>
-			<%= f.text_field :title, placeholder: 'Title' %>
+			<%= f.text_field :title, placeholder: 'Title' %><br />
+			<%= f.label :picture %>
 			<%= f.file_field :picture %>
-			<%= f.text_field :tag_list, placeholder: '#Tag...' %><br />
+			<%= f.label :tag_list, 'Tags' %><br />
+			<%= f.text_field :tag_list, placeholder: '#...' %><br />
+			<%= f.text_field :location, placeholder: 'Location' %><br />
 			<%= f.submit 'Post', class: 'btn btn-success' %>
 		<% end %>
 	</div>

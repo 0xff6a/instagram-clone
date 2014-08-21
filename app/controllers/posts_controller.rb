@@ -27,7 +27,7 @@ class PostsController < ApplicationController
 	private
 
 	def _create_post(data_hash)
-		post = Post.new(data_hash.permit(:title, :picture, :tag_list))
+		post = Post.new(data_hash.permit(:title, :picture, :location, :tag_list))
 		post.user_id = current_user.id
 		post
 	end

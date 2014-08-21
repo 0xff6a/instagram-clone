@@ -1,7 +1,8 @@
-def _create_post(title, filepath)
+def _create_post(title, filepath, location='')
 	visit posts_path
 	click_link 'New Post'
 	fill_in 'Title', with: title
+	fill_in 'Location', with: location
 	attach_file 'Picture', Rails.root.join(filepath)
 	click_button 'Post'
 end

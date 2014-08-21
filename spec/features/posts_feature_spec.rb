@@ -42,6 +42,11 @@ describe 'Posting' do
 			expect(page).to have_css 'img.uploaded-pic'
 		end
 
+		it 'allows the user to add a location to the post' do
+			_create_post('Post with location', 'spec/images/example.jpg', 'London, UK')
+			expect(page).to have_css 'a', text: 'London, UK'
+		end
+
 	end
 
 end

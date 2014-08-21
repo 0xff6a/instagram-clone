@@ -23,6 +23,8 @@
 			</section>
 			<p>
 				<em>Posted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.email %></em>
+				<br />
+				<%=link_to post.location, post_map_path(post) %>
 			</p>
 
 		</footer>
