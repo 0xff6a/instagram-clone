@@ -2,10 +2,10 @@
 	<div class="panel panel-default">
 		
 		<header class='panel-heading'>
-			<h3 class='post-title'> <%=post.title%> </h3>
+			<h3 class='panel-title'> <%=post.title%> </h3>
 		</header>
 		
-		<div class='panel body'>
+		<div class='panel-body'>
 			
 			<% if post.picture.present? %>
 				<a class='large-image-link' href=<%= post.picture.url() %>>
@@ -13,17 +13,21 @@
 				</a><br/>
 			<% end %>
 
+		</div>
+		<footer>
+
 			<section class='tag container'>
 				<% post.tags.each do |tag| %>
 					<%= link_to tag.text, tag, class:'post-tag' %>
 				<% end %>
 			</section>
+			<p>
+				<em>Posted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.email %></em>
+			</p>
 
-		</div>
-		
-		<p>
-			<em>Posted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.email %></em>
-		</p>
+		</footer>
+
+
 
 	</div>
 </article>
