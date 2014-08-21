@@ -24,6 +24,10 @@ class PostsController < ApplicationController
 		render 'new'
 	end
 
+	def show
+		@post = Post.find(params[:id])
+	end
+
 	private
 
 	def _create_post(data_hash)

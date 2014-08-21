@@ -4,12 +4,6 @@
 	</header>
 
 	<section class='panel-body'>
-		<figure id='map'></figure>
+		<figure id='map' data-id='<%= @post.id %>'></figure>
 	</section>
 </article>
-
-<%= javascript_tag do %>
-  window.postLocation = '<%= j @post.location %>';
-  window.postTitle = '<%= j @post.title %>';
-  window.pictureUrl = '<%= j @post.picture.url(:medium) %>';
-<% end %>
