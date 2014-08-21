@@ -54,9 +54,7 @@ $(document).ready( function () {
         var index = modalMap.markers.length;
         var lat = event.latLng.lat();
         var lng = event.latLng.lng();
-
         var template = $('#edit_marker_template').text();
-
         var content = template.replace(/{{index}}/g, index).replace(/{{lat}}/g, lat).replace(/{{lng}}/g, lng);
 
         modalMap.addMarker({
@@ -64,7 +62,13 @@ $(document).ready( function () {
           lng: lng,
         });
 
-        $('#post_location').val(lat + ' : ' + lng);
+        GMaps.geocode({
+          lat: lat, 
+          lng: lng, 
+          callback: function(result, status){
+            $('#post_location').val(result[0].formatted_address);
+          }
+        });
 
       });
 
