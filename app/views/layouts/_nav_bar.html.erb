@@ -2,20 +2,20 @@
 	<% if current_user %>
 		<%= link_to '#', :class => "btn btn-success navbar-btn", :'data-toggle' => "modal", :'data-target' =>"#newPostModal"  do %>
 			<span class="glyphicon glyphicon-picture"></span>
-			<span> New Post <span>
+			<span> New Post </span>
 		<% end %>
 		<%= link_to destroy_user_session_path, method: :delete, class: "btn btn-danger navbar-btn" do %>
 			<span class="glyphicon glyphicon-road"></span>
-			<span> Sign Out<span>
+			<span> Sign Out</span>
 		<% end %>
 	<% else %>
 	  <%= link_to new_user_session_path, class: "btn btn-primary navbar-btn" do %>
 	  	<span class="glyphicon glyphicon-log-in"></span>
-	  	<span> Sign In <span>
+	  	<span> Sign In </span>
   	<% end %>
  		<%= link_to new_user_registration_path, class: "btn btn-success navbar-btn" do %>
  			<span class="glyphicon glyphicon-user"></span>
- 			<span> Sign Up <span>
+ 			<span> Sign Up </span>
  		<% end %>
 	<% end %>
 </nav>

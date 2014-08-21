@@ -8,29 +8,8 @@
 	</section>
 </article>
 
-<script type='text/javascript'>
-
-var map = new GMaps({
-  div: '#map',
-  lat: -12.043333,
-  lng: -77.028333
-});
-
-GMaps.geocode({
-  address: '<%= @post.location %>',
-  callback: function(results, status) {
-    if (status == 'OK') {
-      var latlng = results[0].geometry.location;
-      map.setCenter(latlng.lat(), latlng.lng());
-      map.addMarker({
-        lat: latlng.lat(),
-        lng: latlng.lng(),
-        infoWindow: {
-        	content: "<div><span class='glyphicon glyphicon-film'></span><span> <%= @post.title %> </span></div><img src='<%= @post.picture.url(:medium) %>'></img>"
-        }
-      });
-    }
-  }
-});
-
-</script>
+<%= javascript_tag do %>
+  window.postLocation = '<%= j @post.location %>';
+  window.postTitle = '<%= j @post.title %>';
+  window.pictureUrl = '<%= j @post.picture.url(:medium) %>';
+<% end %>

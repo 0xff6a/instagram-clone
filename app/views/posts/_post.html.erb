@@ -1,21 +1,16 @@
 <article class="post col-sm-6 col-md-4">
 	<div class="panel panel-default">
-		
 		<header class='panel-heading'>
 			<h3 class='panel-title map-title'> <%=post.title%> </h3>
 		</header>
-		
 		<div class='panel-body'>
-			
 			<% if post.picture.present? %>
 				<a class='large-image-link' href=<%= post.picture.url() %>>
 					<%= image_tag post.picture.url(:medium), class: 'uploaded-pic' %>
 				</a><br/>
 			<% end %>
-
 		</div>
 		<footer>
-
 			<section class='tag container'>
 				<% post.tags.each do |tag| %>
 					<%= link_to tag.text, tag, class:'post-tag' %>
@@ -26,10 +21,6 @@
 				<br />
 				<%=link_to post.location, post_map_path(post) %>
 			</p>
-
 		</footer>
-
-
-
 	</div>
 </article>
