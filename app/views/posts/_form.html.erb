@@ -6,7 +6,8 @@
 			<%= f.label :picture %>
 			<%= f.file_field :picture %>
 			<%= f.text_field :tag_list, placeholder: 'Tags' %><br />
-			<%= f.text_field :location, placeholder: 'Location' %><br />
+			<%= f.text_field :location, placeholder: 'Location' %>
+			<%= link_to 'Find', '#', id: 'find-location-btn', class: 'btn btn-default' %><br />
 			<%= f.submit 'Post', class: 'btn btn-success' %>
 		<% end %>
 	</div>
