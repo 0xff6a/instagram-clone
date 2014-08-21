@@ -33,17 +33,16 @@ $(document).ready( function () {
 
   };
 
-
   if( $('#modal-map').length ) {
 
-      var modalMap = new GMaps({
+      modalMap = new GMaps({
         div: '#modal-map',
         lat: -12.043333,
         lng: -77.028333
       });
 
       GMaps.geocode({
-      address: $('#post_location').val(),
+      address: 'London, UK',
       callback: function(results, status) {
         if (status == 'OK') {
           var latlng = results[0].geometry.location;
@@ -51,13 +50,6 @@ $(document).ready( function () {
         }
       }
     });
-
-      GMaps.on('click', modalMap.map, function(event) {
-        var index = map.markers.length;
-        var lat = event.latLng.lat();
-        var lng = event.latLng.lng();
-        
-      });
 
   };
 
