@@ -41,22 +41,37 @@ $(document).ready( function () {
         lng: -0.0
       });
 
-      GMaps.geocode({
-      address: 'London, UK',
-      callback: function(results, status) {
-        if (status == 'OK') {
-          var latlng = results[0].geometry.location;
-          modalMap.setCenter(latlng.lat(), latlng.lng());
-          modalMap.refresh();
-        }
+    GMaps.geolocate({
+      success: function(position){
+        modalMap.setCenter(position.coords.latitude, position.coords.longitude);
       }
     });
+
+    GMaps.on('click', modalMap.map, function(event) {
+
+        modalMap.removeMarkers();
+
+        var index = modalMap.markers.length;
+        var lat = event.latLng.lat();
+        var lng = event.latLng.lng();
+
+        var template = $('#edit_marker_template').text();
+
+        var content = template.replace(/{{index}}/g, index).replace(/{{lat}}/g, lat).replace(/{{lng}}/g, lng);
+
+        modalMap.addMarker({
+          lat: lat,
+          lng: lng,
+        });
+
+        $('#post_location').val(lat + ' : ' + lng);
+
+      });
 
   };
 
   $('#newPostModal').on('shown.bs.modal', function () {
     modalMap.refresh();
-    console.log('WOO');
   });
 
 });

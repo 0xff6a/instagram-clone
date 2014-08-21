@@ -5,8 +5,7 @@
 			<%= f.text_field :title, placeholder: 'Title' %><br />
 			<%= f.label :picture %>
 			<%= f.file_field :picture %>
-			<%= f.label :tag_list, 'Tags' %><br />
-			<%= f.text_field :tag_list, placeholder: '#...' %><br />
+			<%= f.text_field :tag_list, placeholder: 'Tags' %><br />
 			<%= f.text_field :location, placeholder: 'Location' %><br />
 			<%= f.submit 'Post', class: 'btn btn-success' %>
 		<% end %>
