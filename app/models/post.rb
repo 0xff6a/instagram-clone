@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
 	validates :picture, attachment_presence: { message: 'You must attach a photo' }
 
 	has_attached_file :picture, 
-		styles: { medium: '300x300>', thumb: '100x100>'},
+		styles: { medium: '250x250#', thumb: '100x100#'},
 		storage: :s3,
 		s3_credentials: {
 			bucket: 'instagram-clone-june',
