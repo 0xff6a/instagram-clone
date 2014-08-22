@@ -25,10 +25,11 @@ $(document).ready( function () {
                 content: "<div><span class='glyphicon glyphicon-film'></span><span> " + response.postTitle + " </span></div><img src='"+ response.pictureUrl + "'></img>"
               }
             });
+            console.log(map.markers[0]);
           }
         }
       });
-
+      
     });
 
   };
@@ -60,6 +61,7 @@ $(document).ready( function () {
       modalMap.addMarker({
         lat: lat,
         lng: lng,
+        id: 1,
       });
 
       GMaps.geocode({

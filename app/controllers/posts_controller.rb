@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
 	def _post_save_error(bad_post)
 		flash[:errors] = bad_post.errors.messages
-		render 'new'
+		redirect_to posts_path
 	end
 
 	def show

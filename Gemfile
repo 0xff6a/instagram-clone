@@ -31,6 +31,8 @@ group :development, :test do
 	gem 'rspec-rails'
 	gem 'capybara'
 	gem 'warden'
+	gem 'poltergeist'
+	gem 'database_cleaner'
 end
 
 gem 'paperclip', github: 'thoughtbot/paperclip'
