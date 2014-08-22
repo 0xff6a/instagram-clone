@@ -1,28 +1,42 @@
-== README
+Week 9 @ Makers Academy: Instagram Clone (InstaBAAM!)
+=====================================================
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hosted on heroku @ http://salty-brook-7264.herokuapp.com/
 
-Things you may want to cover:
+Ruby Version
+------------
 
-* Ruby version
+Ruby 2.1.2
 
-* System dependencies
+Technologies used:
+------------------
+- Ruby on Rails
+- Javascript
+- jQuery & jQuery UI
+- RSpec & Capybara for testign ruby components
+- Poltergeist/Phantom JS for testing JavaScript components
+- Bootstrap for styling & modals
+- GMaps API for mapping functionality
+- Postgres DB
 
-* Configuration
+Functionality:
+--------------
+- Homepage displays a list of posts
+- Each post has a title, attached image, tags and location
+- Users can sign up to the site to post their own images
+- Clicking on a post image will take the user through to the full size image
+- Clicking on a post location will take a user through to a location map
+- Clicking on a post tag will display only posts that share the tag on the page
+- Clicking on the new post button will pop up a modal for users to add posts. Clicking on the mini map will autopopulate the location field. The minimap geolocates the user automatically, but can be recentred to a different location
+- All models are fully validated
 
-* Database creation
+Notes:
+------
+- GMaps API was used to generate all map functionality. This is easier to use than Google Maps for simple functionality, but proved a problem for testing as GMaps does not allow us to select an individual marker on which to trigger a click event. No solution found to test the more complex map functionality.
 
-* Database initialization
+Running the application:
+------------------------
+- bin/rails server in CLI will open the app on port 3000
+- rspec in CLI from the root directory will run the test suite
+- bin/rake db:seed will seed the database with sample entries to demonstrate functionality
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
