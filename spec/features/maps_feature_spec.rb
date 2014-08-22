@@ -4,7 +4,7 @@ describe 'Maps' do
 	
 	before(:each) do
 		_create_and_login_test_user 
-		_create_post('Sample Post', 'spec/images/example.jpg', 'London, UK')
+		_create_post('Sample Post', 'spec/images/example.jpeg', 'London, UK')
 	end
 
 	context 'when a post has been given a location', js: true do

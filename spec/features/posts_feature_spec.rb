@@ -22,28 +22,35 @@ describe 'Posting' do
 			expect(page).to have_content('test post')
 		end
 
+		it 'clicking on a post will take the user to a full size image' do
+			visit posts_path
+			page.find('.large-image-link').click
+			expect(page).to have_content('test post')
+			within('.panel-body') { expect(page).to have_css 'img' }
+		end
+
 	end
 
 	context 'creating posts' do
 
 		it 'should allow a user to create posts from a form' do
-			_create_post('test post', 'spec/images/example.jpg')
+			_create_post('test post', 'spec/images/example.jpeg')
 			expect(page).to have_content('Thank you for posting...')
 			expect(page).to have_content('test post')
 		end
 
 		it 'should display an error if the title is left out' do
-			_create_post('', 'spec/images/example.jpg')
+			_create_post('', 'spec/images/example.jpeg')
 			expect(page).to have_content('Your post must have a title')
 		end
 
 		it 'allows a user to add an image to a post' do
-			_create_post('Another post', 'spec/images/example.jpg')
+			_create_post('Another post', 'spec/images/example.jpeg')
 			expect(page).to have_css 'img.uploaded-pic'
 		end
 
 		it 'allows the user to add a location to the post' do
-			_create_post('Post with location', 'spec/images/example.jpg', 'London, UK')
+			_create_post('Post with location', 'spec/images/example.jpeg', 'London, UK')
 			expect(page).to have_css 'a', text: 'London, UK'
 		end
 

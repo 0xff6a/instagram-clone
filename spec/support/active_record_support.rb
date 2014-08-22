@@ -1,5 +1,5 @@
 def _create_example_pic
-	Rack::Test::UploadedFile.new(Rails.root.join('spec/images/example.jpg'), 'image/jpg')
+	Rack::Test::UploadedFile.new(Rails.root.join('spec/images/example.jpeg'), 'image/jpeg')
 end
 
 def _create_test_user_object

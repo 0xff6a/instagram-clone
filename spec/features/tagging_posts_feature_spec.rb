@@ -7,7 +7,7 @@ describe 'Tagging posts:' do
 	context 'adding tags' do
 
 		it 'lists tags as link under their posts' do
-			_create_tagged_post('New Post', '#baam, #h8fruit', 'spec/images/example.jpg')
+			_create_tagged_post('New Post', '#baam, #h8fruit', 'spec/images/example.jpeg')
 			expect(page).to have_link '#baam'
 			expect(page).to have_link '#h8fruit'
 		end
@@ -17,8 +17,8 @@ describe 'Tagging posts:' do
 	context 'filtering by tags' do
 
 		before(:each) do
-			_create_tagged_post('New Post', '#baam, #h8fruit', 'spec/images/example.jpg')
-			_create_tagged_post('Unrelated Post', '#boom, #lovefruit', 'spec/images/example.jpg')
+			_create_tagged_post('New Post', '#baam, #h8fruit', 'spec/images/example.jpeg')
+			_create_tagged_post('Unrelated Post', '#boom, #lovefruit', 'spec/images/example.jpeg')
 		end
 
 		it 'lists all posts sharing a certain tag' do

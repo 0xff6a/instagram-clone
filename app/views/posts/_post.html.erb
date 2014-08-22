@@ -5,9 +5,9 @@
 		</header>
 		<div class='panel-body'>
 			<% if post.picture.present? %>
-				<a class='large-image-link' href=<%= post.picture.url() %>>
+				<%= link_to post_picture_path(post), class: 'large-image-link' do %>
 					<%= image_tag post.picture.url(:medium), class: 'uploaded-pic' %>
-				</a><br/>
+				<% end %><br/>
 			<% end %>
 		</div>
 		<footer>
