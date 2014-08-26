@@ -38,3 +38,14 @@ def _sign_out
 	click_link 'Sign Out'
 end
 
+def _submit_stripe_transaction(email, card, expiry, cvc)
+	click_on 'Pay with Card'
+	within_frame('stripe_checkout_app') do
+		fill_in 'Email', with: email
+		fill_in 'Card number', with: card
+		fill_in 'MM / YY', with: expiry
+		fill_in 'CVC', with: cvc
+		click_on 'Pay'
+	end
+end
+
