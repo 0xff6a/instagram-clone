@@ -10,7 +10,7 @@ class PurchasesController < ApplicationController
 	  @post = Post.find(params[:post_id])
 
 	  customer = Stripe::Customer.create(
-	    :email => 'example@stripe.com',
+	    :email => params[:stripeEmail],
 	    :card  => params[:stripeToken]
 	  )
 
@@ -28,7 +28,5 @@ class PurchasesController < ApplicationController
 	  flash[:error] = e.message
 	  new_post_picture_purchase_path(@post)
 	end
-
-
 
 end

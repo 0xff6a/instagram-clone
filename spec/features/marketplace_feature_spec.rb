@@ -6,12 +6,12 @@ describe 'Marketplace:' do
 	let(:card)  	{ '4242 4242 4242 4242'	}
 	let(:cvc)   	{ '123'									}
 	let(:expiry) 	{ '05/16'								}
-
+	
 	before(:each) do
 		_create_and_login_test_user 
 		_create_post('Sample Post', 'spec/images/example.jpeg', 'London, UK')
 	end
-	
+
 	context 'when signed in' do
 
 		it 'users have an option to purchase photos' do
@@ -33,6 +33,19 @@ describe 'Marketplace:' do
 			_submit_stripe_transaction(email, card, expiry, cvc)
 			sleep 6
 			expect(page).to have_content('Thank you for your payment')
+		end
+
+	end
+
+	context 'when not signed in' do
+
+		before(:each) do
+			_sign_out
+		end
+
+		it 'user should not have access to the purchase feature' do
+			visit posts_path
+			expect(page).not_to have_css('a', text: 'Purchase')
 		end
 
 	end

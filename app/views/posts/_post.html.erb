@@ -24,7 +24,9 @@
 		</footer>
 		<div class="panel-footer">
 			<em> Starting at just £5.00</em>
-			<%= link_to 'Purchase', new_post_picture_purchase_path(post), class: 'btn btn-warning btn-sm' %>
+			<% if current_user %>
+				<%= link_to 'Purchase', new_post_picture_purchase_path(post), class: 'btn btn-warning btn-sm' %>
+			<% end %>
 		</div>
 	</div>
 </article>
