@@ -22,5 +22,9 @@
 				<%=link_to post.location, post_map_path(post) %>
 			</p>
 		</footer>
+		<div class="panel-footer">
+			<em>Starting at just £5.00</em><br />
+			<%= link_to 'Purchase', new_post_picture_purchase_path(post) %>
+		</div>
 	</div>
 </article>

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   resources :posts do
     resource :map
-    resource :picture
+    resource :picture do
+      resource :purchase
+    end
   end
 
   resources :tags

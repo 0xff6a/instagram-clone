@@ -27,9 +27,7 @@ describe 'Maps' do
 			visit posts_path
 			click_link 'London, UK'
 			sleep 2
-			save_screenshot('spec/images/test.png')
 			page.execute_script("google.maps.event.trigger(window.map.markers[2], 'click');")
-			# sleep 2
 			expect(page).to have_content('Sample Post')
 		end 
 
