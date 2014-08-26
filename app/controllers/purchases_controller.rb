@@ -9,17 +9,10 @@ class PurchasesController < ApplicationController
 	  @amount = 500
 	  @post = Post.find(params[:post_id])
 
-	  customer = Stripe::Customer.create(
-	    :email => params[:stripeEmail],
-	    :card  => params[:stripeToken]
-	  )
-
-	  charge = Stripe::Charge.create(
-	    :customer    => customer.id,
-	    :amount      => @amount,
-	    :description => 'Rails Stripe customer',
-	    :currency    => 'usd'
-	  )
+	  Payment.generate_transaction(	@amount, 
+	  															'Rails Stripe customer', 
+	  															'usd', 
+	  															params )
 
 	  flash[:notice] = "Thank you for your payment"
 	  redirect_to posts_path

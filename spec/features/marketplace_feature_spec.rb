@@ -30,6 +30,7 @@ describe 'Marketplace:' do
 		it 'filling in the stripe checkout form should confirm the purchase', js: true do
 			visit posts_path
 			click_link 'Purchase'
+			expect(Payment).to receive(:generate_transaction)
 			_submit_stripe_transaction(email, card, expiry, cvc)
 			sleep 6
 			expect(page).to have_content('Thank you for your payment')
