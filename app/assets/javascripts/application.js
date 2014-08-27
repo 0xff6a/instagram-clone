@@ -15,4 +15,5 @@
 //= require bootstrap-sprockets
 //= require inputosaurus
 //= require gmaps
+//= require mustache
 //= require_tree .
