@@ -13,7 +13,7 @@ Technologies used:
 - Ruby on Rails
 - Javascript
 - jQuery & jQuery UI
-- RSpec & Capybara for testign ruby components
+- RSpec & Capybara for testing ruby components
 - Poltergeist/Phantom JS for testing JavaScript components
 - Bootstrap for styling & modals
 - GMaps API for mapping functionality
