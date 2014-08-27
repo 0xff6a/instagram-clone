@@ -18,8 +18,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-main.container {
-	margin-top: 60px;
+.main-container {
+	margin-top: 20px;
 }
 
 #user-welcome {
@@ -28,8 +28,15 @@ main.container {
 }
 
 .alert {
+	margin-bottom: 0;
+}
+
+#pusher-alert {
 	margin-top: 60px;
-	margin-bottom: -50px;
+}
+
+#pusher-image-holder {
+	display: none;	
 }
 
 .navbar-brand{

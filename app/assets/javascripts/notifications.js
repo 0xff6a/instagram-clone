@@ -4,13 +4,13 @@ $(document).ready(function() {
 	var channel = pusher.subscribe('user_notifications');
 
 	channel.bind('post-added', function(data) {
-		
+
+		$('#pusher-alert div').remove();
 		$('#pusher-alert').prepend("<div class='alert alert-success' role='alert'><strong>" 
-			+ data.message + "<strong></div>").slideDown();
-		
-		$('#pusher-alert div:gt(0)').fadeOut(function() {
-			$(this).remove();
-		});
+			+ data.message + "<strong></div>"); 
+		$('#pusher-image-holder').show();
+		$('#pusher-images').prepend("<div class='col-xs-3 col-md-2'><img src=" 
+			+ data.img_url + "</img></div>").fadeIn();
 	
 	});
 

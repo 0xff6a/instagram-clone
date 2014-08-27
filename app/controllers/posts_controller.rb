@@ -11,11 +11,11 @@ class PostsController < ApplicationController
 
 	def create
 		@post = _create_post(params[:post])
-		@post.save ? _process_post_save : _post_save_error(@post)
+		@post.save ? _process_post_save(@post) : _post_save_error(@post)
 	end
 
-	def _process_post_save
-		PostNotifier.trigger_with('New content has been added')
+	def _process_post_save(post)
+		PostNotifier.trigger_with('New content has been added', post.picture.url(:thumb) )
 		flash[:notice] = 'Thank you for posting...'
 		redirect_to posts_path
 	end

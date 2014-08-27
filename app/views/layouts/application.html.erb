@@ -34,10 +34,10 @@
       </div>
     </div>
     <header>
-      <section id='pusher-alert' class='container'></section>
+      <%= render partial: 'layouts/pusher_feed' %>
     	<%= render partial: 'layouts/flash' %>
     </header>
-    <main class='container'>
+    <main class='container main-container'>
     	<%= yield %>
     </main>
 
