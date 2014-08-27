@@ -16,20 +16,20 @@ describe 'Marketplace:' do
 
 		it 'users have an option to purchase photos' do
 			visit posts_path
-			expect(page).to have_content('Starting at just £5.00')
-			expect(page).to have_css('a', text: 'Purchase')
+			expect(page).to have_css('.glyphicon-shopping-cart')
+			expect(page).to have_css('a.buy-btn')
 		end
 
 		it 'clicking the purchase link should send the user to a stripe checkout form', js: true do
 			visit posts_path
-			click_link 'Purchase'
+			page.find('.buy-btn').click
 			expect(page).to have_content('Please confirm your purchase')
 			expect(page).to have_css('.stripe-button-el')
 		end	
 
 		it 'filling in the stripe checkout form should confirm the purchase', js: true do
 			visit posts_path
-			click_link 'Purchase'
+			page.find('.buy-btn').click
 			expect(Payment).to receive(:generate_transaction)
 			_submit_stripe_transaction(email, card, expiry, cvc)
 			sleep 6

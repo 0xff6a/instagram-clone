@@ -7,7 +7,7 @@ describe 'Notifications' do
 	context 'when a new photo is uploaded' do
 
 		it 'all users receive a notification' do
-			expect(PostNotifier).to receive(:trigger_with).with('New content has been added')
+			expect(PostNotifier).to receive(:trigger_with).with('New content has been added', anything())
 			_create_post('test post', 'spec/images/example.jpeg')
 		end
 

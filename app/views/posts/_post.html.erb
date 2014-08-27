@@ -1,7 +1,12 @@
 <article class="post col-sm-6 col-md-4">
 	<div class="panel panel-default">
 		<header class='panel-heading'>
-			<h3 class='panel-title map-title'> <%=post.title%> </h3>
+			<h3 class='panel-title'> <%=post.title%> </h3>
+			<% if current_user %>
+					<%= link_to new_post_picture_purchase_path(post), class: 'btn btn-warning btn-sm buy-btn' do %>
+					<span class="glyphicon glyphicon-shopping-cart"></span>
+				<% end %>
+			<% end %>
 		</header>
 		<div class='panel-body'>
 			<% if post.picture.present? %>
@@ -22,11 +27,5 @@
 				<%=link_to post.location, post_map_path(post) %>
 			</p>
 		</footer>
-		<div class="panel-footer">
-			<em> Starting at just £5.00</em>
-			<% if current_user %>
-				<%= link_to 'Purchase', new_post_picture_purchase_path(post), class: 'btn btn-warning btn-sm' %>
-			<% end %>
-		</div>
 	</div>
 </article>

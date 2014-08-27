@@ -26,7 +26,7 @@ describe 'Posting' do
 			visit posts_path
 			page.find('.large-image-link').click
 			expect(page).to have_content('test post')
-			within('.panel-body') { expect(page).to have_css 'img' }
+			within('.lg-img-panel') { expect(page).to have_css 'img' }
 		end
 
 	end
