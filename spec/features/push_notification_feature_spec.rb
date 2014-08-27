@@ -1,15 +1,14 @@
 require 'rails_helper'
 
 describe 'Notifications' do
+
+	before(:each) { _create_and_login_test_user }
 	
 	context 'when a new photo is uploaded' do
 
 		it 'all users receive a notification' do
-			visit posts_path
-			_create_test_user_object
-			_create_test_post_object
-			sleep 5
-			expect(page).to have_content("New content has been added")
+			expect(PostNotifier).to receive(:trigger_with).with('New content has been added')
+			_create_post('test post', 'spec/images/example.jpeg')
 		end
 
 	end

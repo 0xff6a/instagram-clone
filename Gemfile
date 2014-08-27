@@ -38,6 +38,7 @@ end
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk'
 gem 'devise'
+gem 'pusher'
 
 group :production do
 	gem 'rails_12factor'

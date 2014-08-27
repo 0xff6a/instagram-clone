@@ -25,6 +25,9 @@ RSpec.configure do |config|
   config.include Paperclip::Shoulda::Matchers
   config.include Devise::TestHelpers, type: :controller
 
+  #Stub pusher notifications in all test
+  config.before(:each) { allow(PostNotifier).to receive(:trigger_with) }
+
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin

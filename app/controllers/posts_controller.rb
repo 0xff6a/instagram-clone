@@ -15,6 +15,7 @@ class PostsController < ApplicationController
 	end
 
 	def _process_post_save
+		PostNotifier.trigger_with('New content has been added')
 		flash[:notice] = 'Thank you for posting...'
 		redirect_to posts_path
 	end
