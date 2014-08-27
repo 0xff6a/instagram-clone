@@ -2,14 +2,16 @@
 	<header class='panel-heading'>
 		<strong>Please confirm your purchase</strong>
 	</header>
-	<section class='panel-body'>
+	<section class='panel-body' id='purchase-confirmation'>
+		<% if @post.picture.present? %>
+				<img src='<%= @post.picture.url(:medium) %>'></img>
+		<% end %>
 		<%= form_tag post_picture_purchase_path(@post) do %>
 		  <article>
 		    <label class="amount">
 		      <span>Amount: $5.00</span>
 		    </label>
 		  </article>
-
 		  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 		          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
 		          data-description="Purchase your new photo"
