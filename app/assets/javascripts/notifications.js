@@ -17,6 +17,9 @@ $(document).ready(function() {
 		$('#pusher-alert').prepend(alert); 
 		$('#pusher-image-holder').show();
 		$('#pusher-images').prepend(img).fadeIn();
+		$('#pusher-images img:gt(5)').fadeOut(function() {
+			$(this).remove();
+		});
 	
 	});
 
