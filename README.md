@@ -30,6 +30,17 @@ Functionality:
 - Clicking on the new post button will pop up a modal for users to add posts. Clicking on the mini map will autopopulate the location field. The minimap geolocates the user automatically, but can be recentred to a different location
 - All models are fully validated
 
+TO DO
+------
+
+- Add purchases model
+- purchases post_id 
+- user has many purchases
+- purchase belong_to user
+- Add post.has_been_purchased_by?(user)
+- if yes can see full size image
+- if no get message explaining they need to purchase
+
 Notes:
 ------
 - GMaps API was used to generate all map functionality. This is easier to use than Google Maps for simple functionality, but proved a problem for testing as GMaps does not allow us to select an individual marker on which to trigger a click event. No solution found to test the more complex map functionality.
