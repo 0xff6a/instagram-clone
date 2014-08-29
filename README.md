@@ -15,6 +15,8 @@ Technologies used:
 - jQuery & jQuery UI
 - RSpec & Capybara for testing ruby components
 - Poltergeist/Phantom JS for testing JavaScript components
+- Pusher for user notifications
+- Stripe for payments
 - Bootstrap for styling & modals
 - GMaps API for mapping functionality
 - Postgres DB
@@ -28,6 +30,9 @@ Functionality:
 - Clicking on a post location will take a user through to a location map
 - Clicking on a post tag will display only posts that share the tag on the page
 - Clicking on the new post button will pop up a modal for users to add posts. Clicking on the mini map will autopopulate the location field. The minimap geolocates the user automatically, but can be recentred to a different location
+- When a new post is added all users will be notified and a thumbnail of the content displayed at the top of the page
+- Clicking on the thumbnails will take the user to a refreshed homepage with the new content
+- Users can click the shopping cart icon to purchase an image. Payments are processed through stripe
 - All models are fully validated
 
 TO DO
