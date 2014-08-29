@@ -20,24 +20,21 @@ describe 'Maps' do
 
 	context 'when viewing the map associated with a particular post', js: true do
 
-		xit 'should have a marker centred on the location' do
-		end
-
-		xit 'should display the picture and title if the marker is clicked' do
+		it 'should have a marker centred on the location' do
 			visit posts_path
 			click_link 'London, UK'
 			sleep 2
-			page.execute_script("google.maps.event.trigger(window.map.markers[2], 'click');")
+			expect(page.evaluate_script("map.getCenter().lat();")).to be_within(0.05).of 51.507350899999985
+    	expect(page.evaluate_script("map.getCenter().lng();")).to be_within(0.05).of -0.12775829999994492
+		end
+
+		it 'should display the picture and title if the marker is clicked' do
+			visit posts_path
+			click_link 'London, UK'
+			sleep 2
+			page.execute_script("google.maps.event.trigger(window.map.markers[0], 'click');")
 			expect(page).to have_content('Sample Post')
 		end 
-
-	end
-
-	context 'when creating a new post' do
-
-		xit 'should allow the user to set a location by clicking on the map' do
-
-		end
 
 	end
 

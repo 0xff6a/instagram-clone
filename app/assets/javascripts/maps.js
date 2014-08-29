@@ -1,16 +1,16 @@
 $(document).ready( function () {
   
-  if( $('#map').length ) {
+  if( $('#map-holder').length ) {
 
-    postId = $('#map').data('id')
+    postId = $('#map-holder').data('id')
+
+    map = new GMaps({
+      div: '#map-holder',
+      lat: -12.043333,
+      lng: -77.028333
+    });
 
     $.get('/posts/' + postId , function(response) {
-
-      var map = new GMaps({
-        div: '#map',
-        lat: -12.043333,
-        lng: -77.028333
-      });
 
       GMaps.geocode({
         address: response.postLocation,
@@ -35,7 +35,7 @@ $(document).ready( function () {
 
   if( $('#modal-map').length ) {
 
-      var modalMap = new GMaps({
+    modalMap = new GMaps({
         div: '#modal-map',
         lat: -0.0,
         lng: -0.0
@@ -44,7 +44,10 @@ $(document).ready( function () {
     GMaps.geolocate({
       success: function(position){
         modalMap.setCenter(position.coords.latitude, position.coords.longitude);
-      }
+      },
+      error: function(postion) {
+        console.log('Gelocation failed');
+      } 
     });
 
     GMaps.on('click', modalMap.map, function(event) {

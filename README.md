@@ -43,7 +43,7 @@ TO DO
 
 Notes:
 ------
-- GMaps API was used to generate all map functionality. This is easier to use than Google Maps for simple functionality, but proved a problem for testing as GMaps does not allow us to select an individual marker on which to trigger a click event. No solution found to test the more complex map functionality.
+- Phantom JS does not support geolocation functionality, thus the pop up modal map that uses geolocation is not tested
 
 Running the application:
 ------------------------
